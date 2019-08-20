@@ -1,0 +1,245 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.credibanco</groupId>
+		<artifactId>credibanco-vconfigX</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<artifactId>credibanco-vconfigX-war</artifactId>
+	<packaging>war</packaging>
+
+
+	<description>vadmin modulo adquirente </description>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+
+		<org.springframework.version>4.3.24.RELEASE</org.springframework.version>
+		<org.springframework.security.version>3.2.0.RELEASE</org.springframework.security.version>
+
+
+		<thymeleaf.version>3.0.11.RELEASE</thymeleaf.version>
+		<thymeleaf-layout-dialect.version>2.4.1</thymeleaf-layout-dialect.version>
+		<thymeleaf-extras-springsecurity4.version>3.0.4.RELEASE</thymeleaf-extras-springsecurity4.version>
+
+
+		<aspectj>1.8.9</aspectj>
+		<hibernate-validator.version>5.0.1.Final</hibernate-validator.version>
+		<slf4j.version>1.6.1</slf4j.version>
+		<log4j.version>1.2.17</log4j.version>
+		<jackson.version>1.9.3</jackson.version>
+		<alignet-log4j2-ext-version>1.0.0</alignet-log4j2-ext-version>
+		<alignet-application-core-version>1.0.0</alignet-application-core-version>
+		<jackson-library-version>2.6.3</jackson-library-version>
+		<javax-servlet.version>2.5</javax-servlet.version>
+		<javax-validation.version>1.1.0.Final</javax-validation.version>
+
+
+
+
+	</properties>
+
+
+
+	<dependencies>
+		<!-- Spring Core -->
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>${org.springframework.version}</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>${org.springframework.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>${org.springframework.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${org.springframework.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>${org.springframework.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aop</artifactId>
+			<version>${org.springframework.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>
+			<version>${org.springframework.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${org.springframework.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+			<version>${org.springframework.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
+			<version>${org.springframework.version}</version>
+		</dependency>
+
+		<!-- Sprinf Data -->
+
+		<dependency>
+			<groupId>com.alignet.commons</groupId>
+			<artifactId>application-core-spring</artifactId>
+			<version>${alignet-application-core-version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-jpa</artifactId>
+			<version>1.4.5.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-dbcp</groupId>
+			<artifactId>commons-dbcp</artifactId>
+			<version>1.4</version>
+		</dependency>
+
+
+
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-commons</artifactId>
+			<version>1.6.5.RELEASE</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>3.6.10.Final</version>
+		</dependency>
+
+
+
+
+		<dependency>
+			<groupId>bouncycastle</groupId>
+			<artifactId>bcprov-jdk13</artifactId>
+			<version>140</version>
+		</dependency>
+
+		<dependency>
+			<groupId>javax</groupId>
+			<artifactId>javaee-web-api</artifactId>
+			<version>6.0</version>
+			<scope>provided</scope>
+		</dependency>
+
+
+	</dependencies>
+
+
+
+	<profiles>
+		<profile>
+			<id>deve</id>
+			<properties>
+				<app.domain>localhost:9080</app.domain>
+				<app.context>vconfig</app.context>
+			</properties>
+			<build>
+				<resources>
+					<resource>
+						<directory>${basedir}/src/main/resources</directory>
+						<filtering>true</filtering>
+					</resource>
+					<resource>
+						<directory>${basedir}/environment/dev/resources</directory>
+					</resource>
+				</resources>
+			</build>
+		</profile>
+
+		<profile>
+			<id>tst</id>
+			<properties>
+				<app.domain>testecommerce.credibanco.com</app.domain>
+				<app.context>vconfig</app.context>
+			</properties>
+			<build>
+				<resources>
+					<resource>
+						<directory>${basedir}/src/main/resources</directory>
+						<filtering>true</filtering>
+					</resource>
+					<resource>
+						<directory>${basedir}/environment/tst/resources</directory>
+					</resource>
+				</resources>
+			</build>
+		</profile>
+		<profile>
+			<id>prd</id>
+			<properties>
+				<app.domain>ecommerce.credibanco.com</app.domain>
+				<app.context>vconfig</app.context>
+			</properties>
+			<build>
+				<resources>
+					<resource>
+						<directory>${basedir}/src/main/resources</directory>
+						<filtering>true</filtering>
+					</resource>
+					<resource>
+						<directory>${basedir}/environment/prd/resources</directory>
+					</resource>
+				</resources>
+			</build>
+		</profile>
+	</profiles>
+
+	<build>
+		<finalName>credibanco-vconfigX-${project.activeProfiles[0].id}.war</finalName>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>2.3.2</version>
+					<configuration>
+						<source>1.8</source>
+						<target>1.8</target>
+						<encoding>UTF-8</encoding>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>sonar-maven-plugin</artifactId>
+					<version>1.0</version>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+
+
+</project>

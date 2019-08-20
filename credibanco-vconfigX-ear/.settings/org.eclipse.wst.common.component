@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="credibanco-vconfigX-${project.activeProfiles[0].id}-EAR">
+        <wb-resource deploy-path="/" source-path="/target/m2e-wtp/ear-resources"/>
+        <wb-resource deploy-path="/" source-path="/src/main/application" tag="defaultRootSource"/>
+        <dependent-module archiveName="credibanco-vconfigX-${project.activeProfiles[0].id}.war" deploy-path="/" handle="module:/resource/credibanco-vconfigX-war/credibanco-vconfigX-war">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+    </wb-module>
+</project-modules>
